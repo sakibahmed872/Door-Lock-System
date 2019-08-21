@@ -300,8 +300,6 @@ void readKeypad() {
         }
         break;
       case 'C':
-        DoorLock();
-        reset();
         break;
       case 'D':
         reset();
@@ -536,7 +534,7 @@ void DoorLock()
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Door Locked !");
-  delay(1000);
+  delay(800);
 }
 
 void DoorUnLock()
@@ -545,6 +543,9 @@ void DoorUnLock()
   digitalWrite(8, LOW);
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Door UNLocked !");
-  delay(1000);
+  lcd.print("Door UnLocked !");
+  lcd.setCursor(1, 1);
+  lcd.print("For 2 Minutes");
+  delay(1000*120);
+  DoorLock();
 }
